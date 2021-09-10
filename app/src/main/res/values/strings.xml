@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Covid19</string>
+    <string name="covid">Covid 19</string>
+    <string name="uzb">Uzb</string>
+    <string name="world">World</string>
+    <string name="to">to</string>
+    <string name="from">from</string>
+    <string name="between">between</string>
+    <string name="recovered">Recovered</string>
+    <string name="sick">Sick</string>
+    <string name="died">Died</string>
+</resources>

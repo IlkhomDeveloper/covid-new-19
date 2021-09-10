@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+    <ImageView
+        android:id="@+id/refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:src="@drawable/ic_baseline_refresh_24"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="@id/toolbar" />
+    <!--<LinearLayout
+        android:id="@+id/linearWorld"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            style="@style/statisticsStyle"
+            android:layout_width="80dp"
+            android:background="@color/toolbar"
+            android:text="@string/world" />
+
+        <TextView
+            style="@style/statisticsStyle"
+            android:background="@color/green"
+            android:text="25" />
+
+        <TextView
+            style="@style/statisticsStyle"
+            android:background="@color/yellow"
+            android:text="25" />
+
+        <TextView
+            style="@style/statisticsStyle"
+            android:background="@color/red"
+            android:text="25" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearUzb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/linearWorld">
+
+        <TextView
+            style="@style/statisticsStyle"
+            android:layout_width="80dp"
+            android:background="@color/toolbar"
+            android:text="@string/uzb" />
+
+        <TextView
+            style="@style/statisticsStyle"
+            android:background="@color/green"
+            android:text="25" />
+
+        <TextView
+            style="@style/statisticsStyle"
+            android:background="@color/yellow"
+            android:text="25" />
+
+        <TextView
+            style="@style/statisticsStyle"
+            android:background="@color/red"
+            android:text="25" />
+    </LinearLayout>-->
+
+    <LinearLayout
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <TextView
+            android:id="@+id/from"
+            style="@style/timeTextStyle"
+            android:text="@string/from" />
+
+        <TextView
+            android:id="@+id/to"
+            style="@style/timeTextStyle"
+            android:text="@string/to" />
+
+        <ImageButton
+            android:id="@+id/downLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            android:src="@drawable/ic_baseline_download_24" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/worldDiagram"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@id/uzbDiagram"
+        app:layout_constraintTop_toBottomOf="@id/time">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/uzb"
+                    style="@style/BoldStyleTitle" />
+                <TextView
+                    android:text="@string/world"
+                    style="@style/BoldStyleTitle" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <org.eazegraph.lib.charts.PieChart
+                    android:id="@+id/uzbChart"
+                    style="@style/pieChartStyle" />
+
+                <org.eazegraph.lib.charts.PieChart
+                    android:id="@+id/worldChart"
+                    style="@style/pieChartStyle" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/uzbDiagram"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/worldDiagram">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/uzb"
+                style="@style/titleInfoStyle"
+                android:text="@string/uzb"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/world"
+                style="@style/titleInfoStyle"
+                android:text="@string/world"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/first"
+                style="@style/floatActionButtonStyle"
+                app:layout_constraintBottom_toTopOf="@id/second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/world" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/second"
+                style="@style/floatActionButtonStyle"
+                android:backgroundTint="@color/yellow"
+                app:layout_constraintBottom_toTopOf="@id/third"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/first" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/third"
+                style="@style/floatActionButtonStyle"
+                android:backgroundTint="@color/red"
+                app:layout_constraintBottom_toTopOf="@id/info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/second" />
+            <TextView
+                android:id="@+id/uzbPositive"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/first"
+                tools:text="125455666548"
+                app:layout_constraintTop_toTopOf="@id/first"
+                app:layout_constraintBottom_toBottomOf="@id/first"
+                style="@style/countTextStyle" />
+            <TextView
+                android:id="@+id/worldPositive"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/first"
+                android:gravity="end"
+                tools:text="125455666548"
+                app:layout_constraintTop_toTopOf="@id/first"
+                app:layout_constraintBottom_toBottomOf="@id/first"
+                style="@style/countTextStyle" />
+            <TextView
+                android:id="@+id/uzbNegative"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/second"
+                tools:text="125455666548"
+                app:layout_constraintTop_toTopOf="@id/second"
+                app:layout_constraintBottom_toBottomOf="@id/second"
+                style="@style/countTextStyle" />
+            <TextView
+                android:id="@+id/worldNegative"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/second"
+                android:gravity="end"
+                tools:text="125455666548"
+                app:layout_constraintTop_toTopOf="@id/second"
+                app:layout_constraintBottom_toBottomOf="@id/second"
+                style="@style/countTextStyle" />
+            <TextView
+                android:id="@+id/uzbDied"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/third"
+                tools:text="125455666548"
+                app:layout_constraintTop_toTopOf="@id/third"
+                app:layout_constraintBottom_toBottomOf="@id/third"
+                style="@style/countTextStyle" />
+            <TextView
+                android:id="@+id/worldDied"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/third"
+                android:gravity="end"
+                tools:text="125455666548"
+                app:layout_constraintTop_toTopOf="@id/third"
+                app:layout_constraintBottom_toBottomOf="@id/third"
+                style="@style/countTextStyle" />
+
+            <LinearLayout
+                android:id="@+id/info"
+                android:layout_margin="16dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:backgroundTint="@color/green"/>
+                <TextView
+                    android:text="@string/recovered"
+                    style="@style/infoStyle" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:backgroundTint="@color/yellow"/>
+                <TextView
+                    android:text="@string/sick"
+                    style="@style/infoStyle" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:backgroundTint="@color/red"/>
+                <TextView
+                    android:text="@string/died"
+                    style="@style/infoStyle" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
